@@ -44,6 +44,8 @@
 </template>
 
 <script>
+// import bus from '@/assets/bus.js'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -58,6 +60,12 @@ export default {
     this.getList()
   },
   methods: {
+    ...mapMutations([
+      'changebuycarCount'
+    ]),
+    ...mapActions([
+      'asyncchangebuycarCount'
+    ]),
     getAllCheck (value) {
       let selectArrCloth = []
       if (value) {
@@ -146,6 +154,20 @@ export default {
       } else {
         this.checkAll = false
       }
+    },
+    list: {
+      handler: function () {
+        let count = 0
+        this.list.forEach(item => {
+          count += parseInt(item.count)
+        })
+        // bus.$emit('buycarCountChange', count)
+        // this.$store.commit('changebuycarCount', count)
+        // this.changebuycarCount(count)
+        // this.$store.dispatch('asyncchangebuycarCount', count)
+        this.asyncchangebuycarCount(count)
+      },
+      deep: true
     }
   }
 }
@@ -165,5 +187,8 @@ export default {
 }
 .noCloth img {
   width: 100px;
+}
+.el-col-3 img {
+  width: 20px;
 }
 </style>

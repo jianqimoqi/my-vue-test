@@ -1,27 +1,31 @@
 <!--首页-->
 <template>
   <div class="home">
-    <Nav :NavActiveIndex="activeIndex"></Nav>
+    <NavPage v-if="navOpen" :NavActiveIndex="activeIndex" @fromNavVal="fromNavVal"></NavPage>
+    <div v-else>折叠{{activeIndex2}}</div>
     <router-view/>
   </div>
 </template>
 
 <script>
-import Nav from './Nav.vue'
+import NavPage from './NavPage.vue'
 
 export default {
   name: 'home',
   components: {
-    Nav
+    NavPage
   },
   data () {
     return {
-      activeIndex: 'aaa'
+      activeIndex: '/home/buyCar',
+      // activeIndex2: '1234',
+      navOpen: true
     }
   },
   methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+    fromNavVal (val) {
+      this.activeIndex2 = val
+      this.navOpen = false
     }
   }
 }
