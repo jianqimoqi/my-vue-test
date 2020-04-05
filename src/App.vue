@@ -1,18 +1,26 @@
 <!--公共-->
 <template>
   <div id="app">
-    <router-view/>
+    <NavPage></NavPage>
+    <router-view />
   </div>
 </template>
-
+<script>
+import NavPage from './views/NavPage'
+export default {
+  components: {
+    NavPage
+  }
+}
+</script>
 <style>
 /* 引入基础样式 */
-@import url("./assets/base.css")
+@import url("./assets/base.css");
 </style>
 
-<style lang="less">
+<style lang="less" scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

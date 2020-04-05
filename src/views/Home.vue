@@ -1,9 +1,13 @@
 <!--首页-->
 <template>
   <div class="home">
-    <NavPage v-if="navOpen" :NavActiveIndex="activeIndex" @fromNavVal="fromNavVal"></NavPage>
-    <div v-else>折叠{{activeIndex2}}</div>
-    <router-view/>
+    <NavPage v-if="navOpen"
+             :NavActiveIndex="activeIndex"
+             @fromNavVal="fromNavVal"></NavPage>
+    <div class="pointer"
+         v-else
+         @click="menuOpen()">展开{{activeIndex2}}</div>
+    <router-view />
   </div>
 </template>
 
@@ -17,7 +21,7 @@ export default {
   },
   data () {
     return {
-      activeIndex: '/home/buyCar',
+      activeIndex: '/buyCar',
       // activeIndex2: '1234',
       navOpen: true
     }
@@ -26,7 +30,11 @@ export default {
     fromNavVal (val) {
       this.activeIndex2 = val
       this.navOpen = false
+    },
+    menuOpen () {
+      this.navOpen = true
     }
   }
 }
 </script>
+<style scoped lang="stylus"></style>

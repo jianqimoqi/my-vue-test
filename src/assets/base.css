@@ -14,7 +14,7 @@ body {
     color:#666;
     background:#fff
 }
-.clearfix:before,.clearfix:after {  /*清楚浮动*/
+.clearfix:before,.clearfix:after {  /*清除浮动*/
     content:"";
     display:table;
 }
@@ -59,3 +59,19 @@ s,i,em{font-style:normal;text-decoration:none;}
 
 
 /*尾部部导航开始*/
+
+/* 其他 */
+.pointer {
+  cursor: pointer
+}
+.cus-text{   /* 禁止选中复制文字文本 */
+
+  -webkit-user-select: none;   
+
+  -moz-user-select: none;    
+
+  -ms-user-select: none;    
+
+  user-select: none;
+
+}

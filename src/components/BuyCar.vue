@@ -11,23 +11,34 @@
         <el-col :span="3">操作</el-col>
       </div>
     </div>
-    <div class="hasCloth" v-if="list.length">
+    <div class="hasCloth"
+         v-if="list.length">
       <ul class="clothBox">
-        <li v-for="(item, index) in list" :key="index" class="cloth-tr">
+        <li v-for="(item, index) in list"
+            :key="index"
+            class="cloth-tr">
           <el-col :span="6">
-            <el-checkbox v-model="selectArrCloth" :label="item.id" @change="item.checked=! item.checked">{{item.name}}</el-checkbox>
+            <el-checkbox v-model="selectArrCloth"
+                         :label="item.id"
+                         @change="item.checked=! item.checked">{{item.name}}</el-checkbox>
           </el-col>
           <el-col :span="3">{{item.size}}/{{item.color}}</el-col>
           <el-col :span="3">{{item.price}}</el-col>
-          <el-col :span="3" class="ocloth-count">
-            <span @click=decrease(item)>-</span>
+          <el-col :span="3"
+                  class="ocloth-count cus-text">
+            <span class="pointer"
+                  @click=decrease(item)>-</span>
             {{item.count}}
-            <span @click=increase(item)>+</span>
+            <span class="pointer"
+                  @click=increase(item)>+</span>
           </el-col>
           <el-col :span="3">{{item.active}}</el-col>
           <el-col :span="3">{{item.active*item.price*item.count}}</el-col>
           <el-col :span="3">
-            <img class="delCloth" src="@/assets/images/delIcon.png" title="删除" @click="del(item)">
+            <img class="delCloth pointer"
+                 src="@/assets/images/delIcon.png"
+                 title="删除"
+                 @click="del(item)">
           </el-col>
         </li>
       </ul>
@@ -35,7 +46,8 @@
     <div v-else>购物车没有商品，快去逛逛吧</div>
     <div class="totalCount">
       <div class="checkAll">
-        <el-checkbox v-model="checkAll" @change="getAllCheck">全选</el-checkbox>
+        <el-checkbox v-model="checkAll"
+                     @change="getAllCheck">全选</el-checkbox>
       </div>
       <div class="totalPrice">合计{{totalPrice}}元</div>
       <div class="clothCount">已选商品{{totalCount}}件</div>

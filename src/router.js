@@ -10,9 +10,8 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      // path: '/',
-      path: '/home',
-      name: 'home',
+      path: '/',
+      name: '/',
       component: Home,
       children: [
         {
@@ -21,16 +20,28 @@ export default new Router({
           component: () => import('@/components/BuyCar.vue')
         },
         {
+          path: 'test',
+          name: 'test',
+          component: () => import('./views/TestComponent.vue')
+        },
+        {
+          path: 'weather',
+          name: 'weather',
+          component: () => import('@/components/test1/Weather.vue')
+        },
+        {
           path: 'about',
           name: 'about',
-          // route level code-splitting
-          // this generates a separate chunk (about.[hash].js) for this route
-          // which is lazy-loaded when the route is visited.
           // 路由懒加载，当访问这个组件时才加载路由，避免首屏渲染过多内容
           component: () =>
             import(/* webpackChunkName: "about" */ './views/About.vue')
         }
       ]
+    },
+    {
+      path: '/carousel',
+      name: 'Carousel',
+      component: () => import('@/components/test1/ElementCarouselTest')
     }
   ]
 })
