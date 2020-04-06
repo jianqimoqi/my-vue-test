@@ -11,11 +11,10 @@
       <!-- router: 在导航栏中以index作为path进行路由跳转 -->
       <el-menu-item index="/buyCar">购物车{{buycarCount}}</el-menu-item>
       <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="/about">about</el-menu-item>
-        <el-menu-item index="/test">测试用</el-menu-item>
-        <el-menu-item index="/carousel">element轮播</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
+        <template slot="title">工作台</template>
+        <el-menu-item index="about">about</el-menu-item>
+        <el-menu-item index="carousel">element轮播</el-menu-item>
+        <el-menu-item index="animation">动画</el-menu-item>
         <el-submenu index="2-4">
           <template slot="title">选项4</template>
           <el-menu-item index="/weather">weather</el-menu-item>
@@ -46,7 +45,7 @@ export default {
   data () {
     return {
       // activeIndex: '1'
-      activeIndex2: '123'
+      activeIndex2: '+'
       // buycarCount: 0
     }
   },

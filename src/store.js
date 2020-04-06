@@ -7,8 +7,7 @@ export default new Vuex.Store({
   state: {
     buycarCount: 10,
     userinfo: {
-      name: 'hh',
-      age: 18
+      name: '-'
     }
   },
   mutations: {

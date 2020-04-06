@@ -16,22 +16,17 @@ export default new Router({
       children: [
         {
           path: 'buyCar',
-          name: 'buyCar',
-          component: () => import('@/components/BuyCar.vue')
-        },
-        {
-          path: 'test',
-          name: 'test',
-          component: () => import('./views/TestComponent.vue')
+          name: 'BuyCar',
+          component: () => import('@/components/test1/BuyCar.vue')
         },
         {
           path: 'weather',
-          name: 'weather',
+          name: 'Weather',
           component: () => import('@/components/test1/Weather.vue')
         },
         {
           path: 'about',
-          name: 'about',
+          name: 'About',
           // 路由懒加载，当访问这个组件时才加载路由，避免首屏渲染过多内容
           component: () =>
             import(/* webpackChunkName: "about" */ './views/About.vue')
@@ -41,7 +36,12 @@ export default new Router({
     {
       path: '/carousel',
       name: 'Carousel',
-      component: () => import('@/components/test1/ElementCarouselTest')
+      component: () => import('@/components/element/ElementCarouselTest')
+    },
+    {
+      path: '/animation',
+      name: 'Animation',
+      component: () => import('@/components/animation/index')
     }
   ]
 })
